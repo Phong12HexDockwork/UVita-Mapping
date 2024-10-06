@@ -18,7 +18,7 @@
   
   <script>
     // Initialize the map and set its view
-    var map = L.map('map').setView([10.769661, 106.708374], 17);  // Adjust zoom for better visibility
+    var map = L.map('map').setView([10.816060, 106.668889], 17);  // Adjust zoom for better visibility
 
     // Add a tile layer to the map (OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -43,7 +43,9 @@
           // Convert values to float and add to heatmap data
           var lat = parseFloat(row.Latitude);
           var lon = parseFloat(row.Longitude);
-          var uvIndex = parseFloat(row['UV Index']);
+          var uvIndex = parseFloat(row['UV'])*1.6;
+
+          console.log(lat)
           
           // Add to heatmap data with UV Index as intensity
           addDataToHeatmap(lat, lon, uvIndex);
